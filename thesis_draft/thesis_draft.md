@@ -20,17 +20,19 @@ The aim of this thesis is to derive, under clearly stated asymptotic assumptions
 
 The conjectured form to be derived, corrected or confirmed is
 
-$$BIC_3 = -2\ell(\hat\theta) + (p_1+1)\log N + (p_2+1)\log(CZ) + (p_3+1)\log C,$$
+$$BIC_{\Delta 3} = -2\ell(\hat\theta) + (p_1+1)\log N + (p_2+1)\log(CZ) + (p_3+1)\log C,$$
 
 where $C$ is the number of counties, $Z$ the number of ZIP codes per county, $T$ the number of months and $N = CZT$. The counts $p_1$, $p_2$ and $p_3$ are the numbers of month-, ZIP- and county-level fixed effects, with the intercept counted at the county level, and each $+1$ is that level's variance component.
 
+Throughout, $BIC_{\Delta 1}$, $BIC_{\Delta 2}$ and $BIC_{\Delta 3}$ denote the BIC for one-, two- and three-level models respectively. $BIC_{\Delta 1}$ is the standard single-level BIC, $BIC_{\Delta 2}$ is the two-level criterion of Cho, Wu and Naveiras (2024), and $BIC_{\Delta 3}$ is the three-level criterion developed in this thesis.
+
 ## Research Questions
 
-1. **Derivation.** For the balanced three-level random-intercept model, what penalty follows from the asymptotic behavior of the Fisher information matrix, and does it agree with the conjectured $BIC_3$?
+1. **Derivation.** For the balanced three-level random-intercept model, what penalty follows from the asymptotic behavior of the Fisher information matrix, and does it agree with the conjectured $BIC_{\Delta 3}$?
 2. **Assumptions.** Under what assumptions does each penalty term arise? These include the rates at which $C$, $Z$ and $T$ grow, positivity of the variance components, and the level at which each covariate varies. Where do those assumptions break down?
 3. **Structural implications.** How do the penalties on the remaining parameters change when a level is removed from the model, and is the criterion consistent for selecting the correct set of levels?
-4. **Finite-sample performance.** In simulation, how often does $BIC_3$ select the correct hierarchical structure and the correct level-specific fixed effects? How does it compare with BIC using the total sample size, BIC using the number of clusters, Jones's effective sample size, marginal and conditional AIC, and likelihood-ratio tests, especially when the number of counties is small?
-5. **Application.** In the ARCOS opioid data, which of the ZIP and county levels does $BIC_3$ support, how is variation shared across levels, and do conclusions about income and rurality depend on the levels retained?
+4. **Finite-sample performance.** In simulation, how often does $BIC_{\Delta 3}$ select the correct hierarchical structure and the correct level-specific fixed effects? How does it compare with BIC using the total sample size, BIC using the number of clusters, Jones's effective sample size, marginal and conditional AIC, and likelihood-ratio tests, especially when the number of counties is small?
+5. **Application.** In the ARCOS opioid data, which of the ZIP and county levels does $BIC_{\Delta 3}$ support, how is variation shared across levels, and do conclusions about income and rurality depend on the levels retained?
 
 ## Outline of the Method
 
@@ -50,12 +52,12 @@ where $C$ is the number of counties, $Z$ the number of ZIP codes per county, $T$
 
 - **Data generation.** Generate data from the three-level model, setting variance components to zero to create true reduced models.
 - **Design factors.** Vary the number of counties, ZIP codes per county, months, and the intraclass correlations at each level.
-- **Comparison.** Compare $BIC_3$ with the existing criteria listed in research question 4.
+- **Comparison.** Compare $BIC_{\Delta 3}$ with the existing criteria listed in research question 4.
 - **Outcomes.** Record the proportion of correctly selected structures, false-drop and false-keep rates per level, and coverage of fixed-effect intervals after selection.
 
 **Step 5. Application to ARCOS data.**
 
 - **Data preparation.** Prepare the response variable, including checking for zero MME values before any log transformation. Address ZIP codes that cross county boundaries.
-- **Selection and interpretation.** Apply $BIC_3$ and the competing criteria, then interpret the selected structure and the income and rurality effects.
+- **Selection and interpretation.** Apply $BIC_{\Delta 3}$ and the competing criteria, then interpret the selected structure and the income and rurality effects.
 
 **Extensions (only after the three-level theory is complete).** Unbalanced designs, AR(1) errors, a fourth (region) level, and non-nested geographic structures.
